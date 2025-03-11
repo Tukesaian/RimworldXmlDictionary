@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>「string:显示在“MOD设置”里的名字」</name>
+    <author>「string:作者名」</author>
+    <packageId>「string:MOD的ID，一般为作者名.与MOD有关的信息，不能与其他MOD重复」</packageId>
+    <description>
+        「string:显示在“MOD设置”里的MOD描述」
+    </description>
+    <modVersion>「float:你的MOD的版本」</modVersion>
+    <supportedVersions>
+        <li>「float:你的MOD兼容的游戏版本，例：1.5」</li>
+    </supportedVersions>
+    <modDependencies>
+        <li>
+            「packageId:这里填MOD的ID，这里说明你的MOD需要的前置MOD」
+        </li>
+    </modDependencies>
+    <loadAfter>
+        <li>
+            「packageId:这里填MOD的ID，这里说明你的MOD需要的特定排序，排在什么MOD下面」
+        </li>
+    </loadAfter>
+</ModMetaData>
