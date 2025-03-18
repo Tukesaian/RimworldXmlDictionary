@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef Name="「string:本类的名字」" ParentName="「string:基类的名字」" Class="「」" Abstract="「boolen:是否为抽象类」">
+        <!-- 类的继承
+            Entity
+                Thing:游戏中的所有实体
+                    ThingWithComps
+                        Building
+        -->
+        <defName>「string:游戏内部的物品名，大小写敏感，建议使用驼峰命名法」</defName>
+        <label>「string:游戏显示的物品名」</label>
+        <description>「string:游戏显示的描述」</description>
+        <thingClass>「string:物品分类」</thingClass>
+        <graphicData>            <!-- https://blog.csdn.net/qq_58145131/article/details/123814433 -->
+            <texPath>「贴图所在路径，用/。根文件夹为“你的mod/Textures"，所以路径不要写前面的了」</texPath>
+            <graphicClass>「enum:渲染类型」</graphicClass>
+            <!-- 
+                Graphic_Appearances:根据材料不同改变纹理的贴图
+                Graphic_Cluster:随机贴图+随机偏移
+                Graphic_FadesInOut
+                Graphic_Fleck
+                Graphic_FleckPulse
+                Graphic_FleckSplash
+                Graphic_Flicker:火焰的动态贴图
+                Graphic_Genepack
+                Graphic_MealVariants
+                Graphic_Mote
+                Graphic_MoteRandom
+                Graphic_MoteWithAgeSecs
+                Graphic_MoteWithParentRotation
+                Graphic_Multi:区分朝向的贴图
+                Graphic_PawnBodySilhouette
+                Graphic_Random:随机贴图
+                Graphic_Single:单独贴图
+                Graphic_StackCount:可堆叠物品的贴图
+                GraphicMote_RandomWithAgeSecs
+                -->
+            <shaderType>「enum:使用遮罩和类似工具时使用」</shaderType>
+            <!-- 
+            
+            -->
+            <drawSize>(9,9)</drawSize>            <!-- Scale texture up/down to fit -->
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <!-- 
+            Building
+            BuildingBelowTop
+            BuildingOnTop
+            Conduits
+            DoorMoveable
+            Filth
+            Floor
+            FloorCoverings
+            FloorEmplacement
+            Item
+            ItemImportant
+            LightingOverlay
+            LowPlant
+            MetaOverlays
+            MoteLow
+            MoteOverhead
+            MoteOverheadLow
+            Pawn
+            PawnState
+            Projectile
+            Skyfaller
+            Terrain
+            VisEffects
+            Weather
+        -->
+        <staticSunShadowHeight>「0~1.0:影子系数」</staticSunShadowHeight>
+        <passability>「enum:通行能力」「Standable, PassThroughOnly, Impassable」</passability>
+
+        <pathCost>「int:通行消耗的时间」</pathCost>        <!-- passability != Impassable -->
+        <canOverlapZones>「boolen:能否在其上划存储区、种植区等」</canOverlapZones>        <!-- passability != Impassable -->
+
+        <castEdgeShadows>true</castEdgeShadows>
+        <neverMultiSelect>「bool:是否不能双击多选」</neverMultiSelect>
+        <fillPercent>0.5</fillPercent>
+        <coversFloor>true</coversFloor>
+        <blockLight>「boolen:是否妨碍光线传播」</blockLight>
+        <blockWind>「boolen:是否妨碍」</blockWind>
+        <blockWeather>true</blockWeather>
+        <staticSunShadowHeight>0.00</staticSunShadowHeight>
+        <statBases>
+            <MaxHitPoints>「int:建筑耐久」</MaxHitPoints>
+            <WorkToBuild>「int:建造工作量」</WorkToBuild>
+            <Flammability>「float:易燃性」</Flammability>
+            <Beauty>「int:美观度」</Beauty>
+            <SellPriceFactor>「float:出售价值系数」</SellPriceFactor>
+            <Mass>「int:质量（kg）」</Mass>
+        </statBases>
+        <tickerType>「enum:ticker的执行频率」「Long, Never, Normal, Rare」</tickerType>
+        <tradeTags>            <!-- 「交易标签」 -->
+            <li>Art</li>
+        </tradeTags>
+        <thingCategories>            <!-- 「物品类别」 -->
+            <li>BuildingsArt</li>
+        </thingCategories>
+        <size>「int int:建筑占地面积」「(int, int)」</size>
+        <MinifiedDef>「enum:关于能否卸载」</MinifiedDef>
+        <!-- 
+            MinifiedThing:能作为建筑卸载
+            MinifiedTree
+        -->
+        <recipeMaker>            <!-- 「制造要求」 -->
+            <skillRequirements>                <!-- 「制造技能要求」 -->
+                <Crafting>6</Crafting>
+                <Artistic>6</Artistic>
+            </skillRequirements>
+            <recipeUsers>                <!-- 「制造台」 -->
+                <li>TableSculpting</li>
+            </recipeUsers>
+        </recipeMaker>
+        <costList>            <!-- 「材料要求」 -->
+            <Steel>200</Steel>
+            <Silver>400</Silver>
+            <Uranium>35</Uranium>
+            <ComponentIndustrial>8</ComponentIndustrial>
+        </costList>
+        <drawGUIOverlay>「bool:是否当你选中时展现GUI」</drawGUIOverlay>
+        <inspectorTabs><!-- 使用的ITab -->
+            <li></li>
+        </inspectorTabs>
+        <comps><!-- 一个C#类，描述当以特定方式与事物交互时应该发生什么。此类可能需要额外的标签才能工作。 -->
+            <li></li>
+        </comps>
+        <rotatable>「boolen:是否可用Q/E旋转」</rotatable>
+        <terrainAffordanceNeeded>「enum:对地形支撑能力的要求」「Light, Medium,  , Diggable, ShallowWater」</terrainAffordanceNeeded>
+        <leaveResourcesWhenKilled>「boolen:被摧毁时是否会返还材料」</leaveResourcesWhenKilled>
+        <constructEffect>「enum:建筑动画效果」「ConstructDirt, ConstructMetal, ConstructWood」</constructEffect>
+        <placeWorkers>
+            <li>PlaceWorker_ShowFacilitiesConnections</li>
+        </placeWorkers>
+        <constructionSkillPrerequisite>「int:建造技能要求」</constructionSkillPrerequisite>
+        <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
+        <building>
+            <canPlaceOverWall>true</canPlaceOverWall>
+            <isMealSource>「bool:是否为食物源，影响游戏右侧的食物不足警告」</isMealSource>
+        </building>
+        <researchPrerequisites>
+            <li>「defName:需要的前置研究」</li>
+        </researchPrerequisites>
+        <designationCategory>「建筑所在分类」</designationCategory>
+        <designatorDropdown>「建筑所在右键下拉组」</designatorDropdown>
+        <designationHotKey>Misc8</designationHotKey>
+    </ThingDef>
+
+</Defs>

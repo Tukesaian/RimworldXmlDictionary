@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef Name="「string:基对象的A名字」">
+        <AAA>
+        </AAA>
+    </ThingDef>
+
+    <ThingDef Name="「string:本对象名字」" ParentName="「string:基对象的名字」" Class="「」" Abstract="「boolen:是否为抽象类」">
+        <AAA Inherit="false">            <!-- 该数据不继承基对象 -->
+        
+        </AAA>
+    </ThingDef>
+
+</Defs>

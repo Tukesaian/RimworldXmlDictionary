@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+    <name>「string:显示在“MOD设置”里的名字」</name>
+    <author>「string:作者名」</author>
+    <authors>
+        <li>「string:作者名」</li>
+        <li>「string:作者名」</li>
+        <li>「string:作者名」</li>
+    </authors>
+    <packageId>「string:MOD的ID，一般为作者名.与MOD有关的信息，不能与其他MOD重复，不区分大小写」</packageId>
+    <description>
+        「string:显示在“MOD设置”里的MOD描述」
+    </description>
+    <modVersion>「float:你的MOD的版本」</modVersion>
+    <supportedVersions>
+        <li>「float:你的MOD兼容的游戏版本，例：1.5」</li>
+    </supportedVersions>
+    <modDependencies>        <!-- 不能空着，否则游戏会在启动时黑屏 -->
+        <li>
+            <packageId>「packageId:这里填MOD的ID，这里说明你的MOD需要的前置MOD」</packageId>
+            <displayName>「string:显示的前置MOD名字」</displayName>
+            <steamWorkshopUrl>steam://url/CommunityFilePage/「ModID」</steamWorkshopUrl>
+            <downloadUrl>「url:前置mod的发布网址，一般是Github」</downloadUrl>
+        </li>
+    </modDependencies>
+    <incompatibleWith>
+        <li></li>
+    </incompatibleWith>
+    <loadBefore>
+        <li>
+            「packageId:这里填MOD的ID，这里说明你的MOD需要的特定排序，排在什么MOD下面」
+        </li>
+    </loadBefore>
+    <loadAfter>
+        <li>
+            「packageId:这里填MOD的ID，这里说明你的MOD需要的特定排序，排在什么MOD下面」
+        </li>
+    </loadAfter>
+    <!-- descriptionsByVersion、modDependenciesByVersion、loadBeforeByVersion、loadAfterByVersion、incompatibleWithByVersion -->
+    <xxxByVersion>
+        <v1.5>
+            <li></li>
+        </v1.5>
+    </xxxByVersion>
+</ModMetaData>
